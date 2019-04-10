@@ -1,12 +1,22 @@
 /* global $, Neon */
 
-const CONTRACT_ADDRESS = ''
-const CONTRACT_SCRIPTHASH = ''
-const PRIV_RPC_NODE = ''
+const CONTRACT_ADDRESS = 'AY6jHK2G7ZydvafkiXDQg4wLm6qLTUKAji'
+const CONTRACT_SCRIPTHASH = '072b84050cb64a41db5db94148a53d73cdee12b3'
+const PRIV_RPC_NODE = 'http://127.0.0.1:30333'
+const NEO_SCAN_URL = 'http://127.0.0.1:4000/api/main_net'
 
 let pkey = ''
 let amount = 0
 let sellerAddress = ''
+
+const config = {
+  name: 'PrivateNet',
+  extra: {
+    neoscan: NEO_SCAN_URL
+  }
+}
+
+Neon.default.add.network(new Neon.rpc.Network(config))
 
 $('.login-form button').click(() => {
   $('form').animate({ height: 'toggle', opacity: 'toggle' }, 'slow')
