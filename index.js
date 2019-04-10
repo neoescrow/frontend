@@ -20,7 +20,7 @@ Neon.default.add.network(new Neon.rpc.Network(config))
 
 $('.login-form button').click(() => {
   $('form').animate({ height: 'toggle', opacity: 'toggle' }, 'slow')
-  pkey = strToHex($('.login-form input').val())
+  pkey = $('.login-form input').val()
 })
 
 $('.create-escrow-form button').click(() => {
@@ -52,15 +52,4 @@ function createEscrow (pkey, amount, sellerAddress) {
   }).catch(config => {
     console.log(config)
   })
-}
-
-function strToHex (str) {
-  let hex = ''
-
-  for (let i = 0; i < str.length; i++) {
-    hex += '' + str.charCodeAt(i).toString(16)
-  }
-
-  console.log(hex)
-  return hex
 }
