@@ -1,1 +1,3 @@
 # frontend
+
+Test wallet pkey: KxDgvEKzgSBPPfuVfw67oPQBSjidEiqTHURKSDL1R7yGaGYAeY

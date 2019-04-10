@@ -5,7 +5,7 @@ const CONTRACT_SCRIPTHASH = '072b84050cb64a41db5db94148a53d73cdee12b3'
 const PRIV_RPC_NODE = 'http://127.0.0.1:30333'
 const NEO_SCAN_URL = 'http://127.0.0.1:4000/api/main_net'
 
-let pkey = ''
+let pkey = null
 let amount = 0
 let sellerAddress = ''
 
@@ -20,7 +20,7 @@ Neon.default.add.network(new Neon.rpc.Network(config))
 
 $('.login-form button').click(() => {
   $('form').animate({ height: 'toggle', opacity: 'toggle' }, 'slow')
-  pkey = $('.login-form input').val()
+  pkey = strToHex($('.login-form input').val())
 })
 
 $('.create-escrow-form button').click(() => {
@@ -52,4 +52,15 @@ function createEscrow (pkey, amount, sellerAddress) {
   }).catch(config => {
     console.log(config)
   })
+}
+
+function strToHex (str) {
+  let hex = ''
+
+  for (let i = 0; i < str.length; i++) {
+    hex += '' + str.charCodeAt(i).toString(16)
+  }
+
+  console.log(hex)
+  return hex
 }
